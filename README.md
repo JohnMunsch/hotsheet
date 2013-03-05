@@ -7,8 +7,8 @@ quick, but it shouldn't have survived for more than a day or two without being r
 later on when embeddable databases for Java projects became commonplace.
 
 In general, I wouldn't recommend taking much of anything from this code, however, it's been hosted for a long time at
-Sourceforge and is still downloaded for some unknown reason. Seriously, do yourself a favor and find some more modern code
-to imitate. And if you what you need is the RSS library from it, go take a look at Rome instead 
+Sourceforge and is still downloaded regularly for some unknown reason. Seriously, do yourself a favor and find some 
+more modern code to imitate. And if what you need is the RSS library from it, go take a look at ROME instead 
 (https://rometools.jira.com/wiki/display/ROME/Home). It's not really getting updated anymore either, but at least it 
 was much more fully developed than my much earlier project.
 
