@@ -1,0 +1,27 @@
+ <rdf:RDF
+   xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:ocs = "http://alchemy.openjava.org/ocs/directory#"
+   xmlns:dc  = "http://purl.org/metadata/dublin_core#">
+
+    <rdf:description about="http://www.moreover.com/cgi-local/page?o=portal&amp;c=3M%20news">        
+       <dc:title>Moreover 3M news</dc:title>
+       <dc:creator>Moreover (mailto:categorypage@moreover.com)</dc:creator>
+       <dc:description>3M news headlines from around the web</dc:description>
+       <dc:subject>3M</dc:subject>
+    </rdf:description>    
+    
+      <rdf:description about="http://p.moreover.com/cgi-local/page?o=rss&amp;c=3M%20news">
+         <dc:language>en</dc:language>
+         <ocs:format>http://my.netscape.com/publish/formats/rss-0.91.dtd</ocs:format>
+         <ocs:updatePeriod>hourly</ocs:updatePeriod>
+         <ocs:updateFrequency>4</ocs:updateFrequency>
+       </rdf:description>
+
+       <rdf:description about="http://p.moreover.com/cgi-local/page?o=cf&amp;c=3M%20news">
+         <dc:language>en</dc:language>
+         <ocs:contentType>text/plain</ocs:contentType>
+         <ocs:updatePeriod>hourly</ocs:updatePeriod>
+         <ocs:updateFrequency>4</ocs:updateFrequency>
+       </rdf:description>
+
+</rdf:RDF>

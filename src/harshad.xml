@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hs:channelStore xmlns:hs="http://www.hotsheet.com">
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         Moreover 3M news
+         <hs:channelLink>http://www.moreover.com/cgi-local/page?o=portal&amp;c=3M%20news</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         <hs:channelLink>http://p.moreover.com/cgi-local/page?o=rss&amp;c=3M%20news</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         <hs:channelLink>http://p.moreover.com/cgi-local/page?o=cf&amp;c=3M%20news</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         Your Internet Source for Accounting Software
+         <hs:channelLink>http://www.cpaonline.com/channel2.asp</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         The more you know, the more jokes you get...
+         <hs:channelLink>http://www.whump.com/moreLikeThis/moreRSS.php3</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+   <hs:channel updateCount="3">
+      <hs:channelTitle>
+         the Shopping Days Page
+         <hs:channelLink>http://www.hungry.com/~rjrjr/shoppingdays.rdf</hs:channelLink>
+      </hs:channelTitle>
+   </hs:channel>
+</hs:channelStore>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for HotSheet Application -->
+<jnlp spec="1.0" codebase="http://www.JohnMunsch.com/projects/HotSheet" href="HotSheet.jnlp">
+  <information>
+    <title>HotSheet Application</title>
+    <vendor>John Munsch</vendor>
+    <homepage href="http://www.JohnMunsch.com/projects/HotSheet"/>
+    <description>An RSS news retriever</description>
+    <description kind="short">Retrieves and displays news from hundreds of websites.</description> 
+    <icon href="docs/images/HotSheetScreenshot01Thumb.jpg"/> 
+  </information> 
+  <security> 
+      <all-permissions/> 
+  </security> 
+  <resources> 
+    <j2se version="1.4+"/>
+    <jar href="lib/HotSheet.jar"/>
+    <jar href="lib/jaxp.jar"/>
+    <jar href="lib/crimson.jar"/>
+    <jar href="lib/mousewheel.jar"/>
+    <jar href="lib/bsf.jar"/>
+    <jar href="lib/log4j.jar"/>
+  </resources>
+  <resources os="Windows"> 
+    <nativelib href="lib/winnative.jar"/> 
+  </resources>
+  <application-desc main-class="com.johnmunsch.hotsheet.HSMain"/> 
+</jnlp> 

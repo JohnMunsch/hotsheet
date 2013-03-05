@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>HotSheet Development</title>
+</head>
+<body>
+
+<h1>HotSheet Development</h1>
+
+<h2>Building HotSheet</h2>
+
+<p>Building HotSheet couldn't be much easier. Just download the source tree and
+install Ant (a link to the software is provided below). Then go to the directory
+you loaded the HotSheet source code into and type <code>ant</code>. That will cause
+Ant to build the default target and put the results into the build directory. All 
+the JAR files (what you would actually distribute) will be put into the build/lib
+directory.</p>
+
+<p>I normally deploy HotSheet using Java Web Start from my website. The JNLP 
+file used to do that deployment is in the misc folder and you'll need to edit it
+if you want to do deployment the same way. All the information you may
+need with regard to Java Web Start or signing your application for release using
+Java Web Start is available in the links section at the bottom of this readme.</p>
+
+<p>There is already a target in the Ant build file to sign the JAR file for
+distribution via Java Web Start but you'll have to use your own keystore and
+sign the jar yourself if you want to do that. Remember that all the other JAR
+files that make up your application must also be signed using the same key in 
+order for Java Web Start to approve running the application on the clients 
+machine so you'll need to sign all the JAR files in the lib directory once as
+well.</p>
+
+<p>If you just want to run HotSheet from the command line you can use the 
+following command to do so:</p>
+
+<div align="center">
+<code>ant HotSheet</code>
+</div>
+
+<h2>Documentation</h2>
+
+<p>At present the development documentation is sparse. I hope to improve
+that in the future. In the meantime you can execute the command <code>ant javadoc</code>
+and the API documentation will be created.</p>
+
+<a href="apidoc/index.html">API Documentation (Note: This link will not work until instructions in previous paragraph are followed)</a>
+
+<h2>RSS Development Examples</h2>
+
+<p>If you have followed the instructions to build HotSheet given above you can 
+run the demonstration programs HelloRSS, HTMLBox and the newest demonstration
+ListenersTest. This new example demonstrates the basics of using the ItemStore and 
+ChannelStore objects as well as the newly added events and listeners code:</p>
+
+<p>To run a particular application just use the command <code>ant &lt;program 
+name&gt;</code>. For example, <code>ant HelloRSS</code> or 
+<code>ant ListenersTest</code>.</p>
+
+<p>The full sourcecode to these example programs is provided in the
+src/com/johnmunsch/demo directory. Just read the comments in each one and it 
+should get you started pretty easily.</p>
+
+<h2>Directory Structure</h2>
+
+<pre>
+    |---<em>Project Root</em>
+        |---build.xml - ant configuration file
+        |---<em>build</em> - generated files (this directory is created during the build)
+        |   |---<em>classes</em> - destination for compiled java code
+        |   |---<em>lib</em> - the JAR files that make up the compiled program
+        |---docs - non javadoc generated documentation (specs, etc.)
+        |---lib - third party libraries
+        |---misc - files needed for building or distributing the program
+        |---src - project source code (see code organization for details)
+        |---ReadMe.html - this file
+</pre>
+
+<h2>Code Organization</h2>
+
+<p>There's not a lot to the code organization of HotSheet. The RSS code 
+library is contained entirely in the src/com/johnmunsch/rss directory. This is
+the only code you need if you are developing another program to use the RSS 
+library.</p>
+
+<p>The HotSheet code is contained in src/com/johnmunsch/hotsheet and it relies
+on the RSS library code as well as the code under edu/stanford/ejalbert which is
+used as backup browser launching code when HotSheet is run from the command line
+(i.e. the JNLP code from Java Web Start that is normally used to launch the
+browser is unavailable).</p>
+
+<p>Lastly there is the code in src/com/johnmunsch/demo which is demonstration
+code that shows how to program using the RSS library.</p>
+
+<h2>Known Bugs</h2>
+
+<p>HotSheet doesn't handle international character sets yet. For example, these
+channels can be retrieved successfully (and their links work) but they do not
+display correctly in HotSheet:</p>
+
+<ul>
+<li>http://www.hyuki.com/tf/tf.xml</li>
+<li>http://www.nsg.co.jp/nbb/ss/joy/idxxml.rss0.9.xml</li>
+</ul>
+
+<p>Thanks to James Carlyle on the syndication mailing list for the links.</p>
+
+<h2>Links</h2>
+
+<p>The following are links to resources that may be helpful (or necessary) to
+do development using the HotSheet code.</p>
+
+<dl>
+<dt><a href="http://sourceforge.net/">SourceForge.net</a></dt>
+<dd>Repository for the source code, bug lists, wish lists, etc. for current
+and future development of HotSheet.</dd>
+
+<dt><a href="http://www.javasoft.com/j2se/">Sun Java 2 Platform, Standard Edition (J2SE) </a></dt>
+<dd>You will see a link to download the latest version of the J2SE SDK on this
+page (it was version 1.3 at the time of this writing). At a minimum you must
+have this or another Java 2 compatible SDK in order to build the code.</dd>
+
+<dt><a href="http://jakarta.apache.org/ant/index.html">Ant</a></dt>
+<dd>The best build tool out there for Java projects. Performs the same types of
+functions that developers used to use Unix <i>make</i> for but does it using
+software that is written in Java (and thus portable to the same machines your
+programs are portable to) and it uses an XML based build file rather than the
+often obscure syntax of <i>make</i> files.</dd>
+
+<dt><a href="http://www.netbeans.org">NetBeans</a></dt>
+<dd>NetBeans and its commercial counterpart Forte are integrated development
+environments (IDEs) for compiling, running, debugging, etc. Java projects.
+NetBeans 3.1 and 3.2 were used for all the original development work on 
+HotSheet. Note: You do not have to have NetBeans in order to build or do any
+further work on HotSheet. As long as you have the source code, a Java 
+Development Kit (JDK), and Ant you can build the program and extend it any way
+you please. If all you intend to do is rip parts out to include in a program
+of your own then you may not even need Ant.</dd>
+
+<dt><a href="http://java.sun.com/xml/xml_jaxp.html">Java APIs for XML Processing (JAXP)</a></dt>
+<dd>JAXP is a Java library for reading and writing XML files. HotSheet uses it
+to handle the reading of RSS files which are XML based. Unless you need the
+documentation for JAXP you do not need to download anything from this site
+because all the JAXP libraries HotSheet needs are included in the source and 
+binary distributions.</dd>
+
+<dt><a href="https://sourceforge.net/projects/jmousewheel/">JMouseWheel</a></dt>
+<dd>Enables mousewheel support for Windows users before the feature becomes
+standard in the Sun JDK 1.4.</dd>
+
+<dt><a href="http://browserlauncher.sourceforge.net/">BrowserLauncher</a></dt>
+<dd>BrowserLauncher does just what the name suggests. It provides cross-platform
+support for launching a browser and directing it to a particular URL.</dd>
+
+<dt><a href="http://www-124.ibm.com/developerworks/projects/bsf">The Bean Scripting Framework</a></dt>
+<dd>BSF gives you support for many many scripting languages with minimal effort.
+The stable of languages that are compatible with it is steadily increasing too.</dd>
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>HotSheet ReadMe</title>
+<script language="Javascript">
+var javawsInstalled = 0;
+	isIE = "false";
+
+	if (navigator.mimeTypes && navigator.mimeTypes.length) {
+		x = navigator.mimeTypes['application/x-java-jnlp-file'];
+		if (x)
+			javawsInstalled = 1;
+	} else {
+		isIE = "true";
+	}
+
+	function insertLink(url, name) {
+		if (javawsInstalled) {
+			document.write("<a href=" + url + ">"  + name + "</a>");
+		} else { 
+			document.write("<a target='_new' href='http://www.javasoft.com/cgi-bin/javawebstart-platform.sh?'><img src='docs/images/dl-javawebstart3.jpg'></a><p>then</p><a href=" + url + ">" + name + "</a>"); 
+		}
+	}
+</script>
+
+<script language="VBScript">
+On Error Resume Next
+
+	If isIE = "true" Then
+		If Not(IsObject(CreateObject("JavaWebStart.IsInstalled"))) Then
+			javawsInstalled = 0
+		Else 
+			javawsInstalled = 1
+		End If
+	End If
+</script>
+</head>
+<body>
+<img src='docs/images/SplashScreen.jpg' align='right' hspace='10' vspace='5' valign='texttop'/>
+<h2>Introduction</h2>
+
+<p>HotSheet is a program that retrieves news headlines from multiple websites, 
+displays them, and allows you to interact with them (e.g. to get the story
+that goes with a particular headline).</p>
+
+<p>HotSheet works by pulling files from websites that have their news headlines
+stored in a XML format known as RSS. There are many hundreds of websites that
+syndicate their headlines in just this fashion. By picking up the RSS file from
+a URL on the website and reading it HotSheet is able to present the headlines
+to you and allow you to get more information on each news item.</p>
+
+<h2>Features</h2>
+
+<p>This is only a partial list of features but it includes the most important 
+ones:
+
+<ul>
+<li>Pulls headlines from hundreds of sites with syndicated content in RSS format. This includes mainstream sites like c|net, Salon, Slashdot, Moreover, Wired News, etc.</li>
+<li>Attractive display of headlines (and optional channel logos).</li>
+<li>Proxy support (including authentication) is included for business users who may be forced to connect to the Internet through a proxy server at work.</li>
+<li>Free, very very free. Free to just run and free to download the code and use it to build new applications if that is the kind of thing you like to do.</li>
+<li>Tested on Windows and Linux, user reports that it works on Mac OS X, AIX, and Solaris.</li>
+<li>Double clicking an item automatically launches a browser to view the link associated with a given news item.</li>
+<li>Scripting support allows users already familiar with Python, Tcl, JavaScript, etc. to write scripts which can automate the handling of news items. For example, increase the score of items that come from your favorite channels or delete all items that have a certain keyword in the title.</li>
+<li>Easiest installation you are ever likely to see. Install Java Web Start on your favorite platform and then click a single link in the browser. HotSheet will download, install, and run. Later runs will automatically check for new versions on the server and update you to the latest version.</li>
+<li>You can exit out of HotSheet and news items will be stored for later viewing and additional information like viewed status is automatically retained.</li>
+<li>Internal RSS library can be separated out and used to build different applications with interfaces very different from the one HotSheet offers.</li>
+<li>The license on the source code is an extremely liberal BSD license that allows you to build commercial applications using parts of HotSheet without significant restrictions.</li>
+</ul>
+</p>
+
+<h2>Screenshots</h2>
+
+<table>
+<tr>
+<td valign="top"><a href="docs/images/WindowsScreenshot01.jpg"><img src="docs/images/WindowsScreenshot01Thumb.jpg"></a></td>
+<td valign="top"><p>There's a lot going on in this image so I should point out a 
+few key features. Notice that one of the news items has been double clicked. That 
+launched the browser you see in the background and it went to the appropriate 
+page for that news item. In addition it marked the news item as viewed so it now 
+appears faded to make it stand out less in the list without removing it 
+entirely.</p></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top"><a href="docs/images/MacOSXScreenshot01.jpg"><img src="docs/images/MacOSXScreenshot01Thumb.jpg"></a></td>
+<td valign="top"><p>The exact same program running on a Macintosh with OS X! No 
+changes, just Java living up to it's "write once, run anywhere" pledge. Note: 
+This is from a much older version of the program than is shown in the Windows 
+screenshot.</p></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top"><a href="docs/images/LinuxScreenshot01.jpg"><img src="docs/images/LinuxScreenshot01Thumb.jpg"></a></td>
+<td valign="top"><p>Yup, the same code running exactly the same on Linux. In 
+this case Red Hat Linux 7.1 with the Ximian Gnome desktop. Here you can see it 
+displaying a progress meter as it retrieves news channels. Note: This is from a
+much older version of the program than is shown in the Windows screenshot.</p></td>
+</tr>
+</table>
+
+<h2>Documentation</h2>
+
+<p>
+<ul>
+<li>Change the list of channels retrieved by selecting File/Preferences... or
+clicking on the toolbar button that looks like a set of checkboxes. The
+preferences dialog has a tab where you can remove channels currently in the
+list or add the URLs of channels you want to retrieve.</li>
+<li>You can delete some or all of the news items currently displayed 
+(News/Remove All or the trash can icon on the toolbar), just selected items, or
+all items which have been viewed.</li>
+<li>You can retrieve some or all of the channels in the channel list 
+(News/Refresh All or the circling arrows icon on the toolbar).</li>
+<li>Select an item from the list of news headlines and load the associated page
+in a web browser. This is accomplished by double clicking on a news item or
+highlighting the item and pressing the "Enter" key.</li>
+</ul>
+
+<h2>Download</h2>
+
+<p>HotSheet is written in Java 2. That means it will run on most any machine 
+with a Java Virtual Machine that is capable of running Java 2 applications (e.g. 
+Windows 9X/NT/2000, Mac OS X, Solaris, Linux) can run it.</p>
+
+<p>If you have Java WebStart installed then installation and running is as 
+simple as clicking on the link below. If Java WebStart is not installed then 
+there should be a link below to let you download it for your machine.</p>
+
+<div align="center"><p>
+<script LANGUAGE="Javascript">
+<!-- 
+	insertLink("HotSheet.jnlp", "Click here to install & run HotSheet");
+	// --> </script>
+</p></div>
+
+<h3>Note 1</h3>
+<p>If you are using either Mozilla or Netscape 6 as your browser there is a bug 
+that prevents the WebStart detection code from working. It will <i>always</i> 
+indicate that you do not have it and must download and install it. If you have 
+already done so, ignore the sentence that says you need to install WebStart and 
+click the HotSheet link.</p>
+
+<h2>Bugs, Feature Requests and Support Requests</h2>
+
+<p>Here is where you go to enter in bugs you find, make requests for new 
+features or just to ask for help. <a href="http://sourceforge.net/tracker/?group_id=27567">SourceForge Tracker</a></p>
+
+<h2>Properties</h2>
+
+<p>This is a list of all the properties that you can have in your 
+HotSheet.properties file as of today. These properties can be used to change how
+certain features within HotSheet are used.</p>
+
+<p>The file should be located in the
+.hotsheet directory wherever the user home directory is (c:\Documents
+and Settings\&lt;username&gt; for Windows 2000 users, ~&lt;username&gt; for 
+Linux and Unix variants, not sure for other OSes). HotSheet will automatically
+create the file if it doesn't already exist the first time it is run and exited.
+You can then just search for a file named HotSheet.properties to locate it for
+modification.</p>
+
+<p>
+<dl>
+<dt><pre>
+http.authPass=password
+http.authName=johndoe
+http.proxySet=false
+http.proxyHost=proxy
+http.proxyPort=8080
+</pre></dt>
+<dd>The proxy settings are all pretty straightforward. If you have to go
+through a proxy you can now just by setting these properties. You can
+even set the authorization name and password for authenticating proxies.
+Note: All of the proxy stuff is MOOT for people who run through Java Web
+Start, for them the proxy settings are stored in JWS and they are
+queried for the necessary name and password if needed for
+authentication. I included most of this for people who are developing
+and thus run it from the command line.</dd>
+
+<dt><pre>
+delete.viewed=false
+</pre></dt>
+<dd>The delete.viewed if set to true will automatically delete viewed items
+in your list whenever you exit. This feature is off by default.</dd>
+
+<dt><pre>
+draw.channelImages=true
+</pre></dt>
+<dd>This feature is on by default. If the channel information specified an image
+to represent the channel, that image is drawn beside each news item pulled from
+that channel.</dd>
+
+<dt><pre>
+refresh.interval=1800
+</pre></dt>
+<dd>The refresh.interval if set to anything above zero will use the number
+as the number of seconds to wait between automatic refreshes. The default 
+setting is zero.</dd>
+</dl>
+</p>
+
+<h2>Acknowledgements</h2>
+
+<h3>Individual Contributions</h3>
+
+<p>Thanks go to:
+<ul>
+<li>Rasmus Bøggild-Povlsen for item rendering improvements.</li>
+<li>Don Thorp for the code to handle setting the directory the RSS library 
+classes use to save their settings</li>
+</ul>
+
+<h3>Libraries</h3>
+
+<p>Only after looking at the documentation for another project on SourceForge
+did I suddenly realize that I'm not properly acknowledging the various pieces
+I'm including with HotSheet. That is unforgivable as a lot of people worked
+very hard to write the software that made building HotSheet much much easier.</p>
+
+<p>With many apologies, here is my attempt to make amends:
+
+<dl>
+<dt><b>BrowserLauncher</b></dt>
+<dd><p>The browser launching code is used when HotSheet is run outside of Java Web
+Start (which provides browser launching code). It was written by Eric Albert.</p></dd>
+
+<dt><b>mousewheel.jar/MouseWheel.dll</b></dt>
+<dd><p>MouseWheel gives HotSheet support for mousewheels under various Windows
+flavors before the JDK 1.4 gives makes it a standard part of the SDK. Very 
+Nifty!</p>
+
+<p>MouseWheel suffers under one of the ponderous GNU licenses 
+(the <a href="docs/license.txt">lesser GNU license</a> in this case) . I probably 
+should reread the whole 25K thing again some time to make sure I'm not in 
+violation of it one way or another by not redistributing the mousewheel source 
+code with my source code. Hopefully it is sufficient to merely tell you where 
+you can get it since I didn't make any changes to it. That 
+location is: 
+<a href="https://sourceforge.net/projects/jmousewheel/">https://sourceforge.net/projects/jmousewheel/</a></p></dd>
+
+<dt><b>JAXP</b></dt>
+<dd><p>This software gives HotSheet its ability to parse XML and without it 
+writing HotSheet would have been much harder. Like the mousewheel code, this 
+bundling will be rendered redundant with the JDK 1.4 as it includes JAXP as a 
+standard part of the JDK (as it should be). In the meantime however, there are 
+no less than three different licenses associated with various parts of JAXP that 
+must be included here: the 
+<a href="docs/License-RI.html">JAXP Reference Implementation license</a>, the
+<a href="docs/License-W3C.html">W3C Software License</a>, and the 
+<a href="docs/License-ASF.txt">Apache Software License</a>.</p></dd>
+
+<dt><b>Bean Scripting Framework (BSF)</b></dt>
+<dd><p>IBM makes this scripting framework available to let you incorporate
+support for not just one scripting language at a time but a host of different
+ones without duplicating effort. Their existing framework supports languages
+like JavaScript, Tcl, Python, Rexx, and more. There is a possibility that this
+may become an Apache project in the future which would attract more attention
+and make sure that it is well run. Here is the 
+<a href="docs/bsf-license.html">IBM license</a> for the BSF.</p></dd>
+
+<dt><b>Thread Pooling Code</b></dt>
+<dd><p>This code is taken from a Java Pro article by 
+<a href="http://tmodi.home.att.net/">Tarak Modi</a>. The original article and
+the one follow up article did not specify a license for the code but since it
+was widely printed in a magazine I assumed it would be OK to use it.</p></dd>
+
+<dt><b>Various Scripting Languages</b></dt>
+<dd><p>Jacl, Rhino, and Jython are all bundled with HotSheet at this point.</p></dd>
+</dl>
+
+What is really important here is that I'm including many pieces of
+software that are wonderful and free and you should use them yourself if you get
+a chance. I'm not exclusive in my ability to use them and you should be clear in
+your understanding that I'm not taking credit for having written any of the 
+above.
+</p>
+
+<h2>License</h2>
+
+<p>The HotSheet program and all its source code is made available under a BSD
+style license. That means that you can incorporate parts of it into your own
+work or even modify it and sell it. The few restrictions that the license
+places on you can be read <a href="docs/bsd-license.html">here</a> (it's a 
+short license).</p>
+
+<h2>Development</h2>
+
+<p>Development documentation is located <a href="docs/Development.html">here</a>.</p>
+
+<p>The project files/bug tracking/forums/etc. are hosted using the wonderful services of: <a href="http://sourceforge.net/projects/hotsheet">
+<img src="http://sourceforge.net/sflogo.php?group_id=27567&type=2" width="125" height="37" border="0" alt="SourceForge.net Logo"></a></p>
+
+<h2>Links</h2>
+
+<p>The following are links to resources that may be helpful (or necessary) to
+use HotSheet or do development using its code.</p>
+
+<dl>
+<dt><a href="http://www.johnmunsch.com">JohnMunsch.com</a></dt>
+<dd>Home base for the creator of HotSheet. I wrote all of the original software
+and I maintain the project page for the project from this site and 
+SourceForge.net.</dd>
+
+<dt><a href="http://www.javasoft.com/products/javawebstart/">Java Web Start</a></dt>
+<dd>The easiest way to help users download, install, run, and update your Java 
+based software. Uses a simple file to direct the user's machine to download
+an application, cache it locally, update it when there are changes, and run it
+under a specific version of the Java runtime environment.</dd>
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<serviceList>
+	<header>
+		<version>4</version>
+		<docs>http://my.userland.com/stories/storyReader$235</docs>
+		<updated>Sat, 01 Sep 2001 04:08:35 GMT</updated>
+		</header>
+	<services>
+		<service>
+			<url>http://www.cpaonline.com/channel2.asp</url>
+			<id>15</id>
+			<timeLastChange>Fri, 31 Aug 2001 14:04:48 GMT</timeLastChange>
+			<format>RSS1</format>
+			<title>CPA Online</title>
+			<description>Your Internet Source for Accounting Software</description>
+			<htmlUrl>http://www.cpaonline.com</htmlUrl>
+			<imageUrl>http://www.cpaonline.com/images/buttons/channelbutton.gif</imageUrl>
+			<approved>Sat, 20 Mar 1999 17:56:52 GMT</approved>
+			</service>
+		<service>
+			<url>http://www.whump.com/moreLikeThis/moreRSS.php3</url>
+			<id>46</id>
+			<timeLastChange>Fri, 31 Aug 2001 20:07:20 GMT</timeLastChange>
+			<submitter>bill@whump.com</submitter>
+			<format>RSS1</format>
+			<title>More Like This WebLog</title>
+			<description>The more you know, the more jokes you get...</description>
+			<htmlUrl>http://www.whump.com/moreLikeThis/</htmlUrl>
+			<imageUrl>http://www.whump.com/images/moreRSSlogo.gif</imageUrl>
+			<approved>Sun, 28 Mar 1999 22:23:23 GMT</approved>
+			</service>
+		<service>
+			<url>http://www.hungry.com/~rjrjr/shoppingdays.rdf</url>
+			<id>92</id>
+			<timeLastChange>Fri, 31 Aug 2001 07:03:23 GMT</timeLastChange>
+			<submitter>rjrjr@pobox.com</submitter>
+			<format>RSS1</format>
+			<title>792 Days Ago</title>
+			<description>the Shopping Days Page</description>
+			<htmlUrl>http://hungry.com/~rjrjr/shoppingdays.htm</htmlUrl>
+			<imageUrl>http://hungry.com/~rjrjr/light.gif</imageUrl>
+			<approved>Wed, 31 Mar 1999 19:42:11 GMT</approved>
+		</service>
+	  </services>
+	</serviceList>

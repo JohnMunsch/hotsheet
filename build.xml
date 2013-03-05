@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+
+<!-- Written to assume that classpath is rooted in the current directory. -->
+<project name="HotSheet" basedir="." default="all">
+    <target name="init">
+        <!-- Create the build directory. -->
+        <mkdir dir="build"/>
+
+        <property file="./build.properties"/>
+
+        <propertyfile file="./build.properties">
+            <entry key="build.number" type="int" operation="+" value="1" pattern="00"/>
+        </propertyfile>
+
+        <echo message="Build ${build.number}"/>
+
+        <replace file="src/com/johnmunsch/hotsheet/AboutDialog.java" 
+            token="@BUILDNUMBER@" value="${build.number}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <mkdir dir="build/classes"/>
+
+        <!-- Both srcdir and destdir should be package roots. -->
+        <!-- They could be different of course; in that case NetBeans can also be set -->
+        <!-- up to compile to a different filesystem in the same way; see Compiler Types: -->
+        <javac srcdir="src" destdir="build/classes" debug="true" deprecation="true">
+            <classpath>
+                <fileset dir="lib"/>
+            </classpath>
+        </javac>
+
+        <!-- Copy files needed to run the software to destinations in the build directory. -->
+        <copy todir="build/classes" >
+            <fileset dir="src">
+                <include name="**/*.gif"/>
+                <include name="**/*.jpg"/>
+                <include name="**/*.wav"/>
+                <include name="**/*.dtd"/>
+            </fileset>
+        </copy>
+
+        <copy todir="build/lib">
+            <fileset dir="lib">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="jar" depends="init,compile">
+        <jar jarfile="build/lib/HotSheet.jar" manifest="misc/manifest.txt" compress="true" basedir="build/classes" excludes="com/johnmunsch/demo"/>
+        <jar jarfile="build/lib/demo.jar" compress="true" basedir="build/classes" includes="com/johnmunsch/demo/*.class"/>
+        <jar jarfile="build/lib/winnative.jar" compress="true" basedir="lib" includes="*.dll" excludes="msvcp60.dll"/>
+    </target>
+
+    <target name="sign" depends="jar">
+        <signjar jar="build/lib/HotSheet.jar" keystore="${keystore}" alias="${alias}" storepass="${password}"/>
+        <signjar jar="build/lib/winnative.jar" keystore="${keystore}" alias="${alias}" storepass="${password}"/>
+    </target>
+
+    <target name="all" depends="jar" description="Build everything.">
+        <echo message="Application built."/>
+    </target>
+
+    <target name="javadoc" depends="init" description="Javadoc for my API.">
+        <mkdir dir="docs/apidoc"/>
+        <javadoc packagenames="com.johnmunsch.*" sourcepath="src" destdir="docs/apidoc"/>
+    </target>
+
+    <target name="clean" depends="init" description="Clean all build products.">
+        <delete dir="build"/>
+    </target>
+
+    <!-- The following targets allow you to run all the various programs -->
+    <!-- generated from this source code. HotSheet is only one of the -->
+    <!-- available targets. The rest are various example programs that -->
+    <!-- demonstrate how to use the RSS library.  -->
+    <target name="HotSheet" depends="jar" description="Run HotSheet.">
+        <java classname="com.johnmunsch.hotsheet.HSMain" dir="build/lib" fork="yes">
+            <classpath>
+                <fileset dir="build/lib">
+                    <include name="HotSheet.jar"/>
+                    <include name="jnlp.jar"/>
+                    <include name="jaxp.jar"/>
+                    <include name="crimson.jar"/>
+                    <include name="xalan.jar"/>
+                    <include name="mousewheel.jar"/>
+                    <include name="winnative.jar"/>
+                    <include name="bsf.jar"/>
+                    <include name="jacl.jar"/>
+                    <include name="tcljava.jar"/>
+                    <include name="js.jar"/>
+                    <include name="jython.jar"/>
+                    <include name="jython-lib.jar"/>
+                    <include name="log4j.jar"/>
+                </fileset>
+            </classpath>
+            <jvmarg value="-Dpython.path=jython-lib.jar/Lib"/>
+        </java>
+    </target>
+
+    <target name="HelloRSS" depends="jar" description="Run HelloRSS demo.">
+        <java classname="com.johnmunsch.demo.HelloRSS" fork="yes">
+            <classpath>
+                <fileset dir="build/lib">
+                    <include name="demo.jar"/>
+                    <include name="HotSheet.jar"/>
+                    <include name="jnlp.jar"/>
+                    <include name="jaxp.jar"/>
+                    <include name="crimson.jar"/>
+                    <include name="xalan.jar"/>
+                    <include name="winnative.jar"/>
+                    <include name="bsf.jar"/>
+                    <include name="jacl.jar"/>
+                    <include name="tcljava.jar"/>
+                    <include name="js.jar"/>
+                    <include name="jython.jar"/>
+                    <include name="log4j.jar"/>
+                </fileset>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="HTMLBox" depends="jar" description="Run HTMLBox demo.">
+        <java classname="com.johnmunsch.demo.HTMLBox" fork="yes">
+            <classpath>
+                <fileset dir="build/lib">
+                    <include name="demo.jar"/>
+                    <include name="HotSheet.jar"/>
+                    <include name="jnlp.jar"/>
+                    <include name="jaxp.jar"/>
+                    <include name="crimson.jar"/>
+                    <include name="xalan.jar"/>
+                    <include name="winnative.jar"/>
+                    <include name="bsf.jar"/>
+                    <include name="jacl.jar"/>
+                    <include name="tcljava.jar"/>
+                    <include name="js.jar"/>
+                    <include name="jython.jar"/>
+                    <include name="log4j.jar"/>
+                </fileset>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="ListenersTest" depends="jar" description="Run ListenersTest demo.">
+        <java classname="com.johnmunsch.demo.ListenersTest" fork="yes">
+            <classpath>
+                <fileset dir="build/lib">
+                    <include name="demo.jar"/>
+                    <include name="HotSheet.jar"/>
+                    <include name="jnlp.jar"/>
+                    <include name="jaxp.jar"/>
+                    <include name="crimson.jar"/>
+                    <include name="xalan.jar"/>
+                    <include name="winnative.jar"/>
+                    <include name="bsf.jar"/>
+                    <include name="jacl.jar"/>
+                    <include name="tcljava.jar"/>
+                    <include name="js.jar"/>
+                    <include name="jython.jar"/>
+                    <include name="log4j.jar"/>
+                </fileset>
+            </classpath>
+        </java>
+    </target>
+</project>
